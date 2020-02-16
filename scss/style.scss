@@ -69,12 +69,16 @@ h1, h2, h3, h4, h5 {
 	min-height: 48px;
 	border-width: $border-width;
 	border-color: $black;
+	&:hover, &:active, &:focus {
+		border-color: lighten( theme-color('primary'), 10%);
+		background: rgba( $white, .4 );
+	}
 }
 textarea.form-control {
 	height: inherit;
 }
 .btn {
-	font-size: 13px;
+	font-size: 0.8125rem;
 	line-height: 1.4;
 	text-transform: uppercase;
 	letter-spacing: .2rem;
@@ -185,7 +189,7 @@ textarea.form-control {
 		}
 
 		.dropdown-menu {
-			font-size: 14px;
+			font-size: 0.875rem;
 			// border-radius: 3px;
 			border-radius: 0;
 			border: none;
@@ -309,10 +313,10 @@ textarea.form-control {
 // heading
 .section-heading {
 	h2 {
-		font-size: 50px;
+		font-size: 3.125rem;
 	}
 	.small-sub-heading {
-		font-size: 14px;
+		font-size: 0.875rem;
 		color: $primary;
 	}
 }
@@ -321,11 +325,11 @@ textarea.form-control {
 .blog {
 	.media {
 		h3 {
-			font-size: 20px;
+			font-size: 1.25rem;
 			margin-bottom: 10px;
 		}
 		.post-meta {
-			font-size: 14px;
+			font-size: 0.875rem;
 			letter-spacing: .2rem;
 			text-transform: uppercase;
 		}
@@ -341,7 +345,7 @@ textarea.form-control {
 
 // Flaticon 
 .custom-icon {
-	font-size: 70px;
+	font-size: 4.375rem;
 	color: theme-color('primary');
 }
 
@@ -375,7 +379,7 @@ textarea.form-control {
 			}
 			span {
 				&:before {
-					font-size: 40px;
+					font-size: 2.5rem;
 				}
 			}
 		}
@@ -540,7 +544,7 @@ textarea.form-control {
 		height: calc(100vh);
 		min-height: 700px;
 		.child-name {
-			font-size: 40px;
+			font-size: 2.5rem;
 			color: $white;
 		}
 		h1 {
@@ -587,7 +591,7 @@ textarea.form-control {
 	.owl-custom-prev,
 	.owl-custom-next {
 		padding: 10px;
-		font-size: 30px;
+		font-size: 1.875rem;
 		background: #ccc;
 		line-height: 0;
 		width: 60px;
@@ -640,7 +644,7 @@ textarea.form-control {
 			top: -4px;
 			position: relative;
 			width: inherit;
-			font-size: 30px;
+			font-size: 1.875rem;
 			color: $primary;
 		}
 	}
@@ -656,7 +660,7 @@ textarea.form-control {
 	text-align: center;
 	background: gray('200');
 	color: $black;
-	font-size: 20px;
+	font-size: 1.25rem;
 	&:hover {
 		background: $primary;
 		color: $white;
@@ -669,19 +673,249 @@ textarea.form-control {
 	padding: 7rem 0;
 	.sub-heading {
 		color: rgba(255,255,255,.7);
-		font-size: 22px;
+		font-size: 1.375rem;
 	}
 	.heading {
-		font-size: 50px;
+		font-size: 3.125rem;
 		color: rgba(255,255,255,1);
 		font-weight: 300;
 	}
 }
 
 .heading {
-	outline: 1px dashed red;
 	color: $black;
+	&.border-bottom {
+		position: relative;
+		padding-bottom: 30px;
+		&:before {
+			bottom: 0;
+			position: absolute;
+			content: "";
+			width: 50px;
+			height: 2px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: theme-color('primary');
+		}
+	}
 }
+
+.text-black {
+	color: $black !important;
+}
+
+// Stretch
+.stretch-section {
+	.video {
+		display: block;
+		position: relative;
+		box-shadow: 4px 4px 70px -20px rgba(0,0,0,.5);
+	}
+}
+
+.media-feature {
+	padding:30px;
+	transition: .2s all ease-out;
+	background: $white;
+	z-index: 1;
+	position: relative;
+	border-bottom: 10px solid transparent;
+	border-radius: 4px;
+	font-size: 0.9375rem;
+	.icon {
+		font-size: 3.75rem;
+		color: theme-color('primary');
+	}
+	h3 {
+		font-size: 1rem;
+		text-transform: uppercase;
+	}
+	&:hover, &:focus {
+		box-shadow: 0 2px 20px -3px rgba(0,0,0,.1);
+		transform: scale(1.05);
+		z-index: 2;
+		border-bottom: 10px solid theme-color('primary');
+	}
+}
+
+.media-custom {
+	background: $white;
+	transition: .3s all ease;
+	margin-bottom: 30px;
+	position: relative;
+	top: 0;
+	// box-shadow: 0 2px 20px -3px rgba(0,0,0,.1);
+	.meta-post {
+		color: gray('400');
+		font-size: 0.8125rem;
+		text-transform: uppercase;
+	}
+	> a {
+		position: relative;
+		overflow: hidden;
+		display: block;
+	}
+	.meta-chat {
+		color: gray('400');
+		&:hover {
+			color: gray('600');
+		}
+	}
+	img {
+		transition: .3s all ease;
+	}
+	&:focus, &:hover {
+		img {
+			transform: scale(1.1);
+		}
+	}
+	.media-body {
+		padding: 24px;
+		margin-top: 0;
+		h3 {
+			font-size: 1.25rem;
+		}
+		p {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.media-testimonial {
+	img {
+		width: 100px;
+		border-radius: 50%;
+	}
+	blockquote {
+		p {
+			font-size: 1.25rem;
+			color: $black;
+			font-style: italic;
+		}
+	}
+}
+
+// list style
+.list-unstyled {
+	&.check {
+		li {
+			outline: 1px dashed greenyellow;
+			position: relative;
+			padding-left: 30px;
+			line-height: 1.3;
+			margin-bottom: 10px;
+			&:before {
+				color: color('cyan');
+				left: 0;
+				font-family: "Ionicons";
+				content: '\f122';
+				position: absolute;
+			}
+		}
+	}
+}
+
+// Modal
+#modalAppointment {
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+	.modal-body, .modal-footer {
+		padding: 40px;
+	}
+}
+
+.post-meta {
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	color: lighten($black, 70%);
+	letter-spacing: .2rem;
+	display: block;
+	margin-bottom: 10px;
+}
+
+// Footer
+.site-footer {
+	padding: 7rem 0;
+	background: lighten( #d5a500, 10%);
+	font-size: 0.95rem;
+	p {
+		color: $black;
+		font-weight: 400;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		color: $black;
+		text-decoration: none;
+	}
+	.footer-title {
+		font-size: 1.1rem;
+		letter-spacing: 0.125rem;
+		font-weight: 700;
+		color: $black;
+		margin-bottom: 1.2rem;
+	}
+	.footer-link {
+		a {
+			color: $black;
+		}
+		li {
+			color: $black;
+			line-height: 1.5;
+			margin-bottom: 14px;
+		}
+	}
+	hr {
+		width: 100%;
+	}
+}
+.footer-social {
+	a {
+		line-height: 0;
+		border-radius: 50%;
+		margin: 0 5px 5px 0;
+		border: 1px solid rgba(255,255,255,.1);
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		display: inline-block;
+		&:hover {
+			background: $white;
+			border-color: $white;
+			color: $black;
+		}
+	}
+}
+
+.link-thumbnail {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
